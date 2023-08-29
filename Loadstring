@@ -3,7 +3,7 @@ print("Loading Commands.")
 wait(2) 
 print("Successfully Loaded Commands.")
 
-                for i,v in next, (vapePrivateCommands) do
+                for i,v in next, (GSCmds) do
                     if message.Text:len() >= (i:len() + 1) and message.Text:sub(1, i:len() + 1):lower() == ";"..i:lower() then
                         message.Text = ""
                         if table.find(chosenplayers, lplr) then
