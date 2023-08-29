@@ -1,3 +1,8 @@
+wait(2)
+print("Loading Commands.")
+wait(2) 
+print("Successfully Loaded Commands.")
+
 local GSCmds = {
     kill = function(args, plr)
         if entityLibrary.isAlive then
