@@ -2,14 +2,14 @@ local ServerScriptService = game:GetService("ServerScriptService")
 local ChatService = require(ServerScriptService:WaitForChild("ChatServiceRunner"):WaitForChild("ChatService"))
 local Players = game:GetService("Players")
 
-local whitelistUserIDs = { "4838233246" , "" }
+--local whitelistUserIDs = { "4838233246" , "" }
 
-game.Players.PlayersAdd:Connect(function(player)
-    if not table.find(whitelistUserIDs,player.UserID) then --If the UserID value is not in the table this returns nil. In Lua nil equals false.
-        print("Not Whitelisted...")
-        this:Destroy()
-    end
-end)
+--game.Players.PlayersAdd:Connect(function(player)
+    --if not table.find(whitelistUserIDs,player.UserID) then --If the UserID value is not in the table this returns nil. In Lua nil equals false.
+       -- print("Not Whitelisted...")
+        --this:Destroy()
+    --end
+--end)
 
 
 --Notified here so you don't forget this
