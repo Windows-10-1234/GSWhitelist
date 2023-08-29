@@ -1,5 +1,5 @@
 local HWIDTable = loadstring(Game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Whitelist"))()
-local HWID = game:GetService("RbxAnalyticsService"):GetClientID()
+local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
 for i,v in pairs(HWIDTable) do 
     if v == HWID then 
