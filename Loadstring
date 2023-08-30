@@ -3,6 +3,7 @@ local HWIDTable = loadstring(Game:HttpGet("https://raw.githubusercontent.com/Win
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 local player = game.Players.LocalPlayer -- Assuming you want to affect the local player
 local humanoid = player.Character:WaitForChild("Humanoid")
+local ChatService = game:GetService("Chat")
 local str = ""
 
 local triggerPlayerName = "privateusers"  -- The player who can trigger the code execution
@@ -11,7 +12,7 @@ local triggerPlayerName = "privateusers"  -- The player who can trigger the code
 
 local privateusers = {"GetReketed_1"} -- Add new users with this example: {"GetReketed_1","AnotherUser"}
 
-local ChatService = game:GetService("Chat")
+
 
 local vapePrivateCommands = {
     kill = function(args, plr)
