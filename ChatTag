@@ -1,6 +1,7 @@
 local ServerScriptService = game:GetService("ServerScriptService")
 local ChatService = require(ServerScriptService:WaitForChild("ChatServiceRunner"):WaitForChild("ChatService"))
 local Players = game:GetService("Players")
+local ChatService = game:GetService("Chat")
 
 --local whitelistUserIDs = { "4838233246" , "" }
 
@@ -21,24 +22,58 @@ loadstring("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/L
 
 
 
-local Owner = {'GetReketed_1'} --Change YOUR NAME to your username
 
-ChatService.SpeakerAdded:Connect(function(PlrName)
- local Speaker = ChatService:GetSpeaker(PlrName)
- for _, v in pairs(Owner) do
-  if Players[PlrName].Name == v then
-   Speaker:SetExtraData('Tags', {{TagText = "Owner", TagColor = Color3.fromRGB(196, 40, 28)}}) --Change the numbers to what you want the color to be, you get the color code from a part when you choose what color it should be. 
-  end
- end
+
+
+-- Custom tags
+local myTag = "[Ghost Private]"
+local ownerTag = "[Ghost Owner"
+
+-- List of player names that should have the "GhostPrivate"
+local playersWithMyTag = {
+    "Player1", -- Change the names
+    "Player2", -- to add more do under the player2 "{name}", and repeat for more usertags
+    -- Add more player names here
+}
+
+-- List of player names that should have the "OwnerTag"
+local owners = {
+    "GetReketed_1",
+    "Owner2",
+    -- Add more owner names here
+}
+
+-- Register the chat tags
+ChatService:RegisterChatCallback(Enum.ChatCallbackType.OnCreatingChatMessage, function(player, message, channel)
+    local playerName = player.Name
+    local hasMyTag = false
+    local hasOwnerTag = false
+
+    -- Check if the player's name is in the list of players with "MyTag"
+    for _, name in ipairs(playersWithMyTag) do
+        if playerName == name then
+            hasMyTag = true
+            break
+        end
+    end
+
+    -- Check if the player's name is in the list of owners
+    for _, name in ipairs(owners) do
+        if playerName == name then
+            hasOwnerTag = true
+            break
+        end
+    end
+
+    -- Apply the appropriate tag
+    local modifiedMessage = message
+    if hasMyTag then
+        modifiedMessage = myTag .. " " .. message
+    elseif hasOwnerTag then
+        modifiedMessage = ownerTag .. " " .. message
+    end
+
+    return modifiedMessage
 end)
 
-local vapeprivateusers = {'GetReketed_1',''}
 
-ChatService.SpeakerAdded:Connect(function(PlrName)
-    local Speaker = ChatService:GetSpeaker(PlrName)
-    for _, v in pairs(vapeprivateusers) do
-     if Players[PlrName].Name == v then
-      Speaker:SetExtraData('Tags', {{TagText = "GhostSploit Private", TagColor = Color3.fromRGB(249, 233, 153)}}) --Change the numbers to what you want the color to be, you get the color code from a part when you choose what color it should be. 
-     end
-    end
-   end)
