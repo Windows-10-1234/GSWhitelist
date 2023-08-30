@@ -3,6 +3,8 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 
 --Loadstring = "loadstring(game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/PrivateWhitelist))()"
 
+print("Loading Whitelist")
+
 for i,v in pairs(HWIDTable) do 
     if v == HWID then 
             print("Whitelisted successfully bypassed")
