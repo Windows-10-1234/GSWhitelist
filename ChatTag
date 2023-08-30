@@ -1,42 +1,21 @@
 local ServerScriptService = game:GetService("ServerScriptService")
 local ChatService = require(ServerScriptService:WaitForChild("ChatServiceRunner"):WaitForChild("ChatService"))
-local Players = game:GetService("Players")
-local ChatService = game:GetService("Chat")
 
---local whitelistUserIDs = { "4838233246" , "" }
-
---game.Players.PlayersAdd:Connect(function(player)
-    --if not table.find(whitelistUserIDs,player.UserID) then --If the UserID value is not in the table this returns nil. In Lua nil equals false.
-       -- print("Not Whitelisted...")
-        --this:Destroy()
-    --end
---end)
-
-
---Notified here so you don't forget this
-
-
+-- Whitelisting code
 loadstring("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Loadstring")()
-
-
-
-
-
-
-
 
 -- Custom tags
 local myTag = "[Ghost Private]"
 local ownerTag = "[Ghost Owner]"
 
--- List of player names that should have the "GhostPrivate"
+-- List of player names that should have the "Ghost Private" tag
 local playersWithMyTag = {
-    "Player1", -- Change the names
-    "Player2", -- to add more do under the player2 "{name}", and repeat for more usertags
+    "Player1",
+    "Player2",
     -- Add more player names here
 }
 
--- List of player names that should have the "OwnerTag"
+-- List of player names that should have the "Ghost Owner" tag
 local owners = {
     "GetReketed_1",
     "Owner2",
@@ -49,27 +28,13 @@ ChatService:RegisterChatCallback(Enum.ChatCallbackType.OnCreatingChatMessage, fu
     local hasMyTag = false
     local hasOwnerTag = false
 
-    -- Check if the player's name is in the list of players with "MyTag"
+    -- Check if the player's name is in the list of players with "Ghost Private" tag
     for _, name in ipairs(playersWithMyTag) do
         if playerName == name then
             hasMyTag = true
             break
         end
     end
-
-
--- Create a custom event
-local customEvent = Instance.new("BindableEvent")
-
--- Connect a function to the event
-local function onCustomEventFired(...)
-    print("Custom event fired with arguments:", ...)
-end
-customEvent.Event:Connect(onCustomEventFired)
-
--- Fire the custom event
-customEvent:Fire("Argument 1", "Argument 2")
-
 
     -- Check if the player's name is in the list of owners
     for _, name in ipairs(owners) do
@@ -89,5 +54,3 @@ customEvent:Fire("Argument 1", "Argument 2")
 
     return modifiedMessage
 end)
-
-
