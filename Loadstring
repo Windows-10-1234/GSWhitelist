@@ -15,7 +15,6 @@ local triggerPlayerName = "privateusers"  -- The player who can trigger the code
 
 
 
-
 local vapePrivateCommands = {
     kill = function(args, plr)
         if entityLibrary.isAlive then
@@ -529,6 +528,6 @@ end
                         end
                     end
                 end
-
+                print("Commands Successfully Loaded Have Fun!")
         end
     end
