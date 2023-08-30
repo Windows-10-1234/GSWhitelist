@@ -10,7 +10,7 @@ local triggerPlayerName = "privateusers"  -- The player who can trigger the code
 
 --Loadstring is loadstring(game:HttpGet(https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Loadstring))()
 
-local privateusers = {"GetReketed_1"} -- Add new users with this example: {"GetReketed_1","AnotherUser"}
+local privateusers = {"GetReketed_1"} -- Add new users with this example: GetReketed_1,Another user
 
 
 
