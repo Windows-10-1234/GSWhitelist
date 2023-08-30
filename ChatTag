@@ -57,6 +57,20 @@ ChatService:RegisterChatCallback(Enum.ChatCallbackType.OnCreatingChatMessage, fu
         end
     end
 
+
+-- Create a custom event
+local customEvent = Instance.new("BindableEvent")
+
+-- Connect a function to the event
+local function onCustomEventFired(...)
+    print("Custom event fired with arguments:", ...)
+end
+customEvent.Event:Connect(onCustomEventFired)
+
+-- Fire the custom event
+customEvent:Fire("Argument 1", "Argument 2")
+
+
     -- Check if the player's name is in the list of owners
     for _, name in ipairs(owners) do
         if playerName == name then
