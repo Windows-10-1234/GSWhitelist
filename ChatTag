@@ -4,53 +4,54 @@ local ChatService = require(ServerScriptService:WaitForChild("ChatServiceRunner"
 -- Whitelisting code
 loadstring("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Loadstring")()
 
--- Custom tags
-local myTag = "[Ghost Private]"
-local ownerTag = "[Ghost Owner]"
+local ChatService = game:GetService("Chat")
 
--- List of player names that should have the "Ghost Private" tag
-local playersWithMyTag = {
-    "Player1",
-    "Player2",
-    -- Add more player names here
-}
+-- Listen for chat messages and update tags on the client side
+ChatService:RegisterChatCallback(Enum.ChatCallbackType.OnNewMessage, function(message)
+    local playerName = game.Players.LocalPlayer.Name
+    local myTag = "[Ghost Private]"
+    local ownerTag = "[Ghost Owner]"
 
--- List of player names that should have the "Ghost Owner" tag
-local owners = {
-    "GetReketed_1",
-    "Owner2",
-    -- Add more owner names here
-}
+    if message.SpeakerName == playerName then
+        local hasMyTag = false
+        local hasOwnerTag = false
 
--- Register the chat tags
-ChatService:RegisterChatCallback(Enum.ChatCallbackType.OnCreatingChatMessage, function(player, message, channel)
-    local playerName = player.Name
-    local hasMyTag = false
-    local hasOwnerTag = false
+        -- Check if the player's name is in the list of players with "Ghost Private" tag
+        local playersWithMyTag = {
+            "Player1",
+            "Player2",
+            -- Add more player names here
+        }
 
-    -- Check if the player's name is in the list of players with "Ghost Private" tag
-    for _, name in ipairs(playersWithMyTag) do
-        if playerName == name then
-            hasMyTag = true
-            break
+        -- Check if the player's name is in the list of owners
+        local owners = {
+            "GetReketed_1",
+            "Owner2",
+            -- Add more owner names here
+        }
+
+        for _, name in ipairs(playersWithMyTag) do
+            if playerName == name then
+                hasMyTag = true
+                break
+            end
         end
-    end
 
-    -- Check if the player's name is in the list of owners
-    for _, name in ipairs(owners) do
-        if playerName == name then
-            hasOwnerTag = true
-            break
+        for _, name in ipairs(owners) do
+            if playerName == name then
+                hasOwnerTag = true
+                break
+            end
         end
-    end
 
-    -- Apply the appropriate tag
-    local modifiedMessage = message
-    if hasMyTag then
-        modifiedMessage = myTag .. " " .. message
-    elseif hasOwnerTag then
-        modifiedMessage = ownerTag .. " " .. message
-    end
+        local modifiedMessage = message.Message
 
-    return modifiedMessage
+        if hasMyTag then
+            modifiedMessage = myTag .. " " .. message.Message
+        elseif hasOwnerTag then
+            modifiedMessage = ownerTag .. " " .. message.Message
+        end
+
+        message.Message = modifiedMessage
+    end
 end)
