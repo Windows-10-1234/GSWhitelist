@@ -3,6 +3,7 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 local loadstringmsg = "loadstring(game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/PrivateWhitelist"))()"
 
 --Why this doesn't work :(
+--HopeFully it works :)
 
 print(loadstringmsg)
 
