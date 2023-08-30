@@ -27,7 +27,7 @@ loadstring("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/L
 
 -- Custom tags
 local myTag = "[Ghost Private]"
-local ownerTag = "[Ghost Owner"
+local ownerTag = "[Ghost Owner]"
 
 -- List of player names that should have the "GhostPrivate"
 local playersWithMyTag = {
