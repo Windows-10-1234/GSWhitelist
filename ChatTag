@@ -4,6 +4,8 @@ local ChatService = require(ServerScriptService:WaitForChild("ChatServiceRunner"
 -- Whitelisting code
 loadstring("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Loadstring")()
 
+print("If chattags don't work, dm me - Owner")
+
 -- Listen for chat messages and update tags on the client side
 game.Players.LocalPlayer.Chatted:Connect(function(message)
     local playerName = game.Players.LocalPlayer.Name
