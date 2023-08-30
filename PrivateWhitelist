@@ -5,5 +5,6 @@ for i,v in pairs(HWIDTable) do
     if v == HWID then 
             print("Whitelisted successfully bypassed")
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Loadstring"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Commands"))()
     end
 end
