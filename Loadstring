@@ -1,9 +1,7 @@
 local HWIDTable = loadstring(Game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Whitelist"))()
 local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
-local player = game.Players.LocalPlayer -- Assuming you want to affect the local player
+local player = game.Players.LocalPlayer
 local humanoid = player.Character:WaitForChild("Humanoid")
-local ChatService = game:GetService("Chat")
-local str = ""
 local ChatService = game:GetService("Chat")
 
 local privateusers = {"GetReketed_1","Benjamin"}
