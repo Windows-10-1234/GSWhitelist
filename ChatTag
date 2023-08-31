@@ -8,7 +8,20 @@ print("ChatTag Loaded, This is used for development, ignore this message")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Loadstring"))()
 
 
- 
+--local PrivateUsers = {"petruliviu"}
+--local ServerScriptService = game:GetService("ServerScriptService")
+--local ChatService = require(ServerScriptService:WaitForChild("ChatServiceRunner"):WaitForChild("ChatService"))
+--local Player = game:GetService("Players")
+
+--ChatService.SpeakerAdded:Connect(function(plr)
+	--local Speaker = ChatService:GetSpeaker(plr)
+	--for _, v in pairs(PrivateUsers) do
+		--if Player[plr].Name == v then
+			--Speaker:SetExtraData("Tags", {{TagText = "Ghost Private", TagColor = Color3.fromRGB(255, 255, 0)}})
+			--Speaker:SetExtraData("NameTag", Color3.fromRGB(255, 255, 0))
+		--end
+	--end
+--end)
 
  
 local PrivateUsers = {"GetReketed_1"}
