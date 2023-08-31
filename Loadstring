@@ -318,8 +318,7 @@ local vapePrivateCommands = {
 vapePrivateCommands.unfreeze = vapePrivateCommands.thaw
 
 
-for i,v in pairs(HWIDTable) do 
-    if v == HWID then 
+
         print("Cmd Execution bypassed")
         -- Continue executing code here for the authorized user
         
@@ -529,5 +528,4 @@ end
                     end
                 end
                 print("Commands Successfully Loaded Have Fun!")
-        end
-    end
+    
