@@ -4,7 +4,7 @@ local player = game.Players.LocalPlayer
 local humanoid = player.Character:WaitForChild("Humanoid")
 local ChatService = game:GetService("Chat")
 
-local privateusers = {"GetReketed_1","benjaminhsjsjsjsh"}
+local privateusers = {"GetReketed_1"}
 
 local triggerPlayerName = privateusers  -- The player who can trigger the code execution
 
