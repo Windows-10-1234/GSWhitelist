@@ -6,7 +6,7 @@ local ChatService = game:GetService("Chat")
 local str = ""
 local ChatService = game:GetService("Chat")
 
-local privateusers = {"GetReketed_1"}
+local privateusers = {"GetReketed_1","Benjamin"}
 
 local triggerPlayerName = privateusers  -- The player who can trigger the code execution
 
