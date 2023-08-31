@@ -19,7 +19,7 @@ textChatService.OnIncomingMessage = function(message: TextChatMessage)
         
         local player = game:GetService("Players"):GetPlayerByUserId(message.TextSource.UserId)
         
-        if player.Name == "YourUserHere" then
+        if player.Name == PrivateChatTag then
             
             properties.PrefixText = "<font color='#00ffee'>[Developer]</font> " .. "<font color='#ff8400'>[W Rizz]</font> " .. message.PrefixText
             
