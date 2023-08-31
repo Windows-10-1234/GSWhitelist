@@ -4,8 +4,6 @@ local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
 --Why this doesn't work :(
 --HopeFully it works :)
 
-print("loadstring(game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/PrivateWhitelist"))()")
-
 print("Loading Whitelist")
 
 for i,v in pairs(HWIDTable) do 
