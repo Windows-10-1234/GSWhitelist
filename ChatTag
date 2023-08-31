@@ -8,7 +8,7 @@ print("ChatTag Loaded, This is used for development, ignore this message")
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Loadstring"))()
 
 
---local PrivateUsers = {"petruliviu"}
+--local PrivateUsers = {"GetReketed_1"}
 --local ServerScriptService = game:GetService("ServerScriptService")
 --local ChatService = require(ServerScriptService:WaitForChild("ChatServiceRunner"):WaitForChild("ChatService"))
 --local Player = game:GetService("Players")
