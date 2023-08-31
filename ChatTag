@@ -11,22 +11,17 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhi
  
 
  
-textChatService.OnIncomingMessage = function(message, TextChatMessage)
-    
-    local properties = Instance.new("TextChatMessageProperties")
-    
-    if message.TextSource then
-        
-        local player = game:GetService("Players"):GetPlayerByUserId(message.TextSource.UserId)
-        
-        if player.Name == PrivateChatTag then
-            
-            properties.PrefixText = "<font color='#00ffee'>[Developer]</font> " .. "<font color='#ff8400'>[W Rizz]</font> " .. message.PrefixText
-            
-        end
-        
-    end
-    
-    return properties
-    
-end
+local PrivateUsers = {"GetReketed_1"}
+local ServerScriptService = game:GetService("ServerScriptService")
+local ChatService = require(ServerScriptService:WaitForChild("ChatServiceRunner"):WaitForChild("ChatService"))
+local Player = game:GetService("Players")
+
+ChatService.SpeakerAdded:Connect(function(plr)
+	local Speaker = ChatService:GetSpeaker(plr)
+	for _, v in pairs(PrivateUsers) do
+		if Player[plr].Name == v then
+			Speaker:SetExtraData("Tags", {{TagText = "Ghost Private", TagColor = Color3.fromRGB(255, 255, 0)}})
+			Speaker:SetExtraData("NameTag", Color3.fromRGB(255, 255, 0))
+		end
+	end
+end)
