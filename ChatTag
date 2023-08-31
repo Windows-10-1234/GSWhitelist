@@ -2,6 +2,8 @@ local textChatService = game:GetService("TextChatService")
 
 local PrivateChatTag = {"GetReketed_1"}
 
+print("ChatTag Loaded, This is used for development, ignore this message")
+
 -- Whitelisting code
 loadstring(game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Loadstring"))()
 
