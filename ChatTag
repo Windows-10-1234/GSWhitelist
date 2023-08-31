@@ -1,63 +1,30 @@
 local ServerScriptService = game:GetService("ServerScriptService")
 local ChatService = require(ServerScriptService:WaitForChild("ChatServiceRunner"):WaitForChild("ChatService"))
+local textChatService = game:GetService("TextChatService")
+
+local PrivateChatTag = {"GetReketed_1"}
 
 -- Whitelisting code
 loadstring("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Loadstring")()
 
-print("If chattags don't work, dm me - Owner")
 
--- Listen for chat messages and update tags on the client side
-game.Players.LocalPlayer.Chatted:Connect(function(message)
-    local playerName = game.Players.LocalPlayer.Name
-    local myTag = "[Ghost Private]"
-    local ownerTag = "[Ghost Owner]"
-
-    local hasMyTag = false
-    local hasOwnerTag = false
-
-    -- Check if the player's name is in the list of players with "Ghost Private" tag
-    local playersWithMyTag = {
-        "Player1",
-        "Player2",
-        -- Add more player names here
-    }
-
-    -- Check if the player's name is in the list of owners
-    local owners = {
-        "GetReketed_1",
-        "Owner2",
-        -- Add more owner names here
-    }
-
-    for _, name in ipairs(playersWithMyTag) do
-        if playerName == name then
-            hasMyTag = true
-            break
+ 
+textChatService.OnIncomingMessage = function(message: TextChatMessage)
+    
+    local properties = Instance.new("TextChatMessageProperties")
+    
+    if message.TextSource then
+        
+        local player = game:GetService("Players"):GetPlayerByUserId(message.TextSource.UserId)
+        
+        if player.Name == PrivateChatTag then
+            
+            properties.PrefixText = "<font color='#00ffee'>[Developer]</font> " .. "<font color='#ff8400'>[Ghost Private]</font> " .. message.PrefixText --at "<font color='#00ffee'>[Developer]</font> " do i need to modify it?
+            
         end
+        
     end
-
-    for _, name in ipairs(owners) do
-        if playerName == name then
-            hasOwnerTag = true
-            break
-        end
-    end
-
-    local modifiedMessage = message
-
-    if hasMyTag then
-        modifiedMessage = myTag .. " " .. message
-    elseif hasOwnerTag then
-        modifiedMessage = ownerTag .. " " .. message
-    end
-
-    game.Players.LocalPlayer:Chat(modifiedMessage)
-end)
---This script uses the Chatted event to intercept chat messages on the client side and add the custom tags based on the player's name and tag lists. It then sends the modified message back to the player's chat using game.Players.LocalPlayer:Chat().
-
-
-
-
-
-
-
+    
+    return properties
+    
+end
